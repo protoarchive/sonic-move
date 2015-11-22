@@ -7,6 +7,9 @@ RSpec.describe UsersController, type: :controller do
       get :new
       expect(response).to have_http_status(:success)
     end
+
+    it "returns registration page "
+    it "creates new user"
   end
 
   describe "GET #create" do
@@ -21,6 +24,7 @@ RSpec.describe UsersController, type: :controller do
       get :show
       expect(response).to have_http_status(:success)
     end
+    it "displays user profile"
   end
 
   describe "GET #edit" do
