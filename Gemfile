@@ -42,4 +42,5 @@ group :test do
 	# Feature testing
 	gem 'capybara'
 	gem 'launchy'
+  gem 'selenium-webdriver'
 end

@@ -19,6 +19,11 @@ html
               span.icon-bar
             a.navbar-brand[href="#"]
               | Sonic Move
-        #navbar.navbar-collapse.collapse
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li 
+                = link_to 'Signup', signup_path
+              li 
+                = link_to 'Login', login_path
 
       == yield 

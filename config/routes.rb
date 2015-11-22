@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-
-  get 'home/show'
-
   get 'signup' => 'users#new', as: 'signup'
   post 'users' => 'users#create'
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
 
+  get 'show' => 'users#show'
+  get 'edit' => 'users#edit'
+  
   resources :users
   resources :sessions
   
