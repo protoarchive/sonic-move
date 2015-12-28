@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "users/show.html.slim", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "user profile" do
+    it "displays user avatar"
+    it "displays username"
+    it "displays user playlists"
+    it "has a link to edit profile"
+  end
 end
