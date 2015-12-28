@@ -17,13 +17,18 @@ html
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand[href="#"]
+            a.navbar-brand[href="/"]
               | Sonic Move
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav
-              li 
-                = link_to 'Signup', signup_path
-              li 
-                = link_to 'Login', login_path
+              - if current_user
+                li
+                  = link_to 'Profile', '/profile'
+                li = link_to 'Logout', logout_path
+              - else
+                li
+                  = link_to 'Signup', signup_path
+                li
+                  = link_to 'Login', login_path
 
       == yield 
