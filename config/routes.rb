@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'profile' => 'users#show'
   get 'edit' => 'users#edit'
+
+  get 'search' => 'home#index'
   
   resources :users
   resources :sessions
+  resources :playlists
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

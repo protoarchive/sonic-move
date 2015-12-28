@@ -1,2 +1,16 @@
 h1 #{@user.username}'s Profile
 p Make a sonic move!
+
+h2 Your Playlists
+= render('playlists/form')
+
+- if @user.playlists
+    table.table-hover.table-bordered
+        thead
+            tr
+                th Name
+                th # of Songs
+        tbody
+            - for p in @user.playlists
+                tr
+                    td = p.name

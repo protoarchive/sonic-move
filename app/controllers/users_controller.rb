@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @playlists = @user.playlists
+    @playlist = Playlist.new
   end
 
   def edit
