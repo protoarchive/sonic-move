@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
-
-  get 'show' => 'users#show'
+  get 'profile' => 'users#show'
   get 'edit' => 'users#edit'
   
   resources :users

@@ -23,7 +23,7 @@ html
             ul.nav.navbar-nav
               - if current_user
                 li
-                  = link_to 'Profile', '/profile'
+                  = link_to 'Profile', user_path(current_user)
                 li = link_to 'Logout', logout_path
               - else
                 li
