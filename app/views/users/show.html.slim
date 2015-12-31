@@ -10,7 +10,10 @@ h2 Your Playlists
             tr
                 th Name
                 th # of Songs
+                th 
         tbody
-            - for p in @user.playlists
+            - for p in @playlists
                 tr
-                    td = p.name
+                    td = link_to p.name, playlist_path(p.id)
+                    td = @playlists.length
+                    td = link_to 'X', playlist_path(p.id), method: :delete
