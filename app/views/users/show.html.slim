@@ -1,2 +1,19 @@
 h1 #{@user.username}'s Profile
 p Make a sonic move!
+
+h2 Your Playlists
+= render('playlists/form')
+
+- if @user.playlists
+    table.table-hover.table-bordered
+        thead
+            tr
+                th Name
+                th # of Songs
+                th 
+        tbody
+            - for p in @playlists
+                tr
+                    td = link_to p.name, playlist_path(p.id)
+                    td = @playlists.length
+                    td = link_to 'X', playlist_path(p.id), method: :delete

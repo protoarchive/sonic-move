@@ -1,0 +1,23 @@
+.btn-group
+    button.btn.btn-primary.dropdown-toggle (data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Add to Playlist <span class="caret"></span>
+    ul.dropdown-menu
+        - if current_user
+            - for p in @playlists
+                li = link_to p.name, playlist_songs_path, method: :create
+        - else
+            li = link_to 'Login', login_path
+           
+
+<!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
