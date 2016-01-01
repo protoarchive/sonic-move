@@ -11,11 +11,13 @@ div class="jumbotron"
             tr
                 th Title
                 th Artist
-                th Link
+                th Preview
+                th 
         tbody
             - for r in @results['response']['songs']
                 tr
                     td #{r['title']}
                     td #{r['artist_name']}
-                    td #{r['id']}
+                    td Play
+                    td Add to Playlist 
               
