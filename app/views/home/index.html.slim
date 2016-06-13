@@ -12,12 +12,11 @@ div class="jumbotron"
                 th Title
                 th Artist
                 th Preview
-                th 
+                th
         tbody
-            - for r in @results['response']['songs']
+            - for r in @results.parsed_response['tracks']['items']
                 tr
-                    td #{r['title']}
-                    td #{r['artist_name']}
+                    td #{r['name']}
+                    td #{r['artists'][0]['name']}
                     td Play
-                    td Add to Playlist 
-              
+                    td Add to Playlist

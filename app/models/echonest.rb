@@ -1,16 +1,27 @@
-require 'net/http'
-
 class Echonest
+  require 'net/http'
+  require 'redis'
   include HTTParty
+  include EchonestHelper
+  # The Echonest was acquied by Spotify, hence the name -- but they are now the
+  # same thing.
+  #
+  # This model is for accessing the Spotify Web API. All calls to the api should
+  # live here.
+  #
+  # Helper methods for tasks that may require calling independent of the model,
+  # such as authorization, live in echonest_helpers
+  @@base_uri = 'https://api.spotify.com/v1'
 
-  @@base_uri = 'http://developer.echonest.com/api/v4'
-  @@api_key = ECHONEST_KEY
-  # base_uri 'http://developer.echonest.com/api/v4'
-  # default_params api_key: ECHONEST_KEY
-
-  def self.song(query)
-    # self.get('/song/search', query: { title: query })
-    HTTParty.get(@@base_uri + '/song/search?api_key=' + @@api_key + '&title=' + query)
+  def self.song(q)
+    # Handles requests to Spotify for song search.
+    # ex.: self.get('/song/search', query: { title: query })
+    response = EchonestHelper.valid_token?()
+    HTTParty.get(
+        @@base_uri + '/search',
+        headers: {"Authorization" => "Bearer #{response["access_token"]}"},
+        query: {"type" => "track", "q" => q}
+    )
   end
 
   def self.artist(query)
