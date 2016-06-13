@@ -1,0 +1,13 @@
+h1 Sign Up
+p Create your account or sign-in with Spotify.
+
+= form_for :user, url: '/users' do |u|
+    p Username:
+    = u.text_field :username
+    p Email: 
+    = u.text_field :email
+    p Password:
+    = u.password_field :password
+    p Password Confirmation: 
+    = u.password_field :password_confirmation
+    = u.submit "Submit"

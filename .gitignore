@@ -17,3 +17,8 @@
 /config/local_env.yml
 /config/secrets.yml
 coverage
+.idea
+*.log
+
+# Ignore application configuration
+/config/application.yml

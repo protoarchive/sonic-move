@@ -1,0 +1,22 @@
+div class="jumbotron"
+    h1 Sonic Move
+    p Swap playlists with your friends the easy way.
+    = form_tag '/search', method: :get
+        = text_field_tag :query
+        = submit_tag 'Search'
+
+-if @results
+    table.table.table-hover.table-bordered
+        thead
+            tr
+                th Title
+                th Artist
+                th Preview
+                th
+        tbody
+            - for r in @results.parsed_response['tracks']['items']
+                tr
+                    td #{r['name']}
+                    td #{r['artists'][0]['name']}
+                    td Play
+                    td Add to Playlist
